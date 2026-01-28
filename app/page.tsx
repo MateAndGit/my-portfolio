@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, ExternalLink, BookOpen, Mail } from "lucide-react";
+import { Github, Linkedin, ExternalLink, BookOpen } from "lucide-react";
 import { projects } from "@/data/projects";
 
 export default function Portfolio() {
@@ -29,19 +29,14 @@ export default function Portfolio() {
 
           <div className="flex gap-4">
             <SocialLink
-              href="https://github.com/your-id"
+              href="https://github.com/MateAndGit"
               icon={<Github size={20} />}
               label="GitHub"
             />
             <SocialLink
-              href="https://linkedin.com/in/your-id"
+              href="https://linkedin.com/in/jonghwa03/"
               icon={<Linkedin size={20} />}
               label="LinkedIn"
-            />
-            <SocialLink
-              href="mailto:your@email.com"
-              icon={<Mail size={20} />}
-              label="Email"
             />
           </div>
         </motion.div>
