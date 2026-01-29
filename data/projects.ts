@@ -17,7 +17,10 @@ export const projects: Project[] = [
     tech: ["Spring Boot", "MySQL"],
     imgUrl:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    notionUrl: "https://dev.to/jonghwayoo03_dev",
+    demoUrl: "https://github.com/MateAndGit/opener-maket",
+    customLinkText: "README",
+    notionUrl:
+      "https://dev.to/jonghwayoo03_dev/part-1-reliable-payment-transaction-1njd",
   },
   {
     id: 2,
