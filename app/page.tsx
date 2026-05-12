@@ -6,7 +6,10 @@ import { projects } from "@/data/projects";
 
 export default function Portfolio() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-white selection:bg-indigo-500 selection:text-white">
+    <main
+      className="min-h-screen bg-neutral-950 text-white selection:bg-indigo-500 selection:text-white"
+      suppressHydrationWarning
+    >
       {/* --- Header Section --- */}
       <section className="max-w-6xl mx-auto px-6 pt-20 pb-16">
         <motion.div
@@ -42,9 +45,8 @@ export default function Portfolio() {
         </motion.div>
       </section>
 
-      {/* --- Unified Projects Grid --- */}
+      {/* --- Projects Grid --- */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
-        {/* 그리드: PC에서는 3열, 태블릿 2열, 모바일 1열 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -54,20 +56,18 @@ export default function Portfolio() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-all duration-300 flex flex-col"
             >
-              {/* 이미지 영역 */}
+              {/* 이미지 영역: alt에 title 대신 ID 사용 */}
               <div className="relative h-48 overflow-hidden bg-neutral-800">
                 <img
                   src={project.imgUrl}
-                  alt={project.title}
+                  alt={`Project ${project.id}`}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
-                {/* 호버 시 살짝 어두워지는 효과 */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               </div>
 
               {/* 내용 영역 */}
               <div className="p-6 flex flex-col flex-1">
-                {/* 태그 */}
                 <div className="flex flex-wrap gap-2 mb-3">
                   {project.tech.map((t) => (
                     <span
@@ -79,15 +79,16 @@ export default function Portfolio() {
                   ))}
                 </div>
 
+                {/* 데이터에 title이 없으므로 프로젝트 번호로 표시 */}
                 <h3 className="text-xl font-bold mb-2 text-white group-hover:text-indigo-400 transition-colors">
-                  {project.title}
+                  Project #{project.id}
                 </h3>
 
+                {/* 데이터에 desc가 없으므로 공백 또는 기본 텍스트 처리 */}
                 <p className="text-neutral-400 text-sm mb-6 leading-relaxed line-clamp-3 flex-1">
-                  {project.desc}
+                  Check out the project details via the links below.
                 </p>
 
-                {/* 버튼 영역 */}
                 <div className="flex gap-3 mt-auto pt-4 border-t border-neutral-800/50">
                   {project.demoUrl && (
                     <a
@@ -117,7 +118,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="text-center text-neutral-600 py-12 text-sm border-t border-neutral-900">
         © 2026 Jong hwa. All rights reserved.
       </footer>
